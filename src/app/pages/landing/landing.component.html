@@ -1,0 +1,67 @@
+<div class="container">
+  <h1>User Data And Transactions</h1>
+  <div class="dropdown">
+    <app-dropdown
+      [formGroup]="searchFormGroup"
+      [formControlName]="'searchSelector'"
+      [selector]="selector"
+      [label]="'name'"
+      [value]="'name'"
+      [placeholder]="'select you search input'"
+    ></app-dropdown>
+  </div>
+  <div class="search-inputs">
+    <app-input
+      [id]="'searchedCustomerName'"
+      [formGroup]="searchFormGroup"
+      [inputFormControlName]="'searchedCustomerName'"
+      [border]="'2px solid #4baaf5'"
+      [borderRadius]="'5px'"
+      [placeholder]="'customer name'"
+      [disable]="disableSearchByCustomer"
+      [label]="'search for customer'"
+      [width]="'50%'"
+      [margin]="'auto'"
+    ></app-input>
+    <app-input
+      [id]="'searchedTransactionAmount'"
+      [formGroup]="searchFormGroup"
+      [inputFormControlName]="'searchedTransactionAmount'"
+      [border]="'2px solid #4baaf5'"
+      [borderRadius]="'5px'"
+      [placeholder]="'transaction amount'"
+      [disable]="disableSearchByAmount"
+      [label]="'search for transaction amount'"
+      [width]="'50%'"
+      [margin]="'auto'"
+    ></app-input>
+  </div>
+  <div class="table">
+    <app-table
+      [customers]="
+        searchedNameArr?.length
+          ? searchedNameArr
+          : searchedNameArr && searchedNameArr?.length === 0
+          ? [{ name: 'no results found' }]
+          : data()
+      "
+    ></app-table>
+    <div *ngIf="isLoading" class="loader">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  <div class="chart">
+    <app-chart
+    [label]="dateArr.value"
+    [data]="amountArr.value "></app-chart>
+
+    <div class="chart-dropdown">
+      <app-dropdown
+      [formGroup]="chartFormGroup"
+      [formControlName]="'selectedCustomer'"
+      [selector]="data()"
+      [label]="'name'"
+      [placeholder]="'select a customer'"></app-dropdown>
+    </div>
+  </div>
+</div>

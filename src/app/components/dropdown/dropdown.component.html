@@ -1,0 +1,12 @@
+<div [formGroup]="formGroup" class="card flex justify-content-center">
+  <p-dropdown
+    [formControlName]="formControlName"
+    [options]="selector"
+    [style]="{width:'300px',padding:'0.5rem',borderRadius:'0.25rem'}"
+    [panelStyle]="{padding:'5px'}"
+    optionLabel="name"
+    [placeholder]="placeholder"
+    [optionLabel]="label"
+    [optionValue]="value"
+  />
+</div>

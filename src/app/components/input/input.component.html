@@ -1,0 +1,23 @@
+<div
+  [formGroup]="formGroup"
+  [style.display]="disable"
+  [style.width]="width"
+  [style.margin]="margin"
+  class="input-container"
+>
+  <label class="label" [for]="id">
+    {{ label }}
+  </label>
+
+  <input
+    class="input"
+    [formControlName]="inputFormControlName"
+    [id]="id"
+    [type]="type"
+    [style.text-align]="textAlign"
+    [style.border]="border"
+    [style.border-radius]="borderRadius"
+    [placeholder]="placeholder"
+    [style.width]="'100%'"
+  />
+</div>

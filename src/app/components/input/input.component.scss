@@ -1,0 +1,19 @@
+.input-container {
+  .label {
+    text-align: center;
+    display: block;
+    margin-block-end: 5px;
+  }
+  .input {
+    display: block;
+    padding: 0.75rem;
+    font-size: 1rem;
+    
+    transition:all 0.3s;
+
+    &:focus {
+      outline: none; 
+      box-shadow: -4px -4px 8px rgba(75, 170, 245, 0.5);
+    }
+  }
+}

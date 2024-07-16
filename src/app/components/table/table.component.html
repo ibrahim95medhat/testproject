@@ -1,0 +1,50 @@
+<!-- <table>
+  <thead>
+    <tr>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>one</td>
+      <td>two</td>
+      <td>two</td>
+    </tr>
+    <tr>
+      <td>three</td>
+      <td>four</td>
+    </tr>
+    <tr>
+      <td>five</td>
+    </tr>
+  </tbody>
+</table> -->
+
+<table>
+  <thead>
+    <tr>
+      <th style="width: 300px">Customer Name</th>
+      <th style="width: 300px">Transaction ID</th>
+      <th style="width: 300px">Transaction Amount</th>
+      <th style="width: 300px">Transaction Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="customer-row" *ngFor="let customer of customers">
+      <td *ngIf="customer" class="customer-name">{{ customer?.name}}</td>
+      <td *ngIf="customer" class="main" colspan="3">
+        <table>
+          <tbody>
+            <tr class="trans" *ngFor="let transaction of customer?.transactions">
+              <td  style="width: 300px">{{transaction?.id}}</td>
+              <td  style="width: 300px">{{transaction?.amount | currency:'USD'}}</td>
+              <td  style="width: 300px">{{transaction?.date | date}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
